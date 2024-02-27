@@ -1,9 +1,9 @@
 # Prepare data
 
-├── correct_annotations.ipynb $~~~~~~$_To manually correct the annotations_  
-├── data_utils.py $~~~~~~~~~~~~~~~~~~$_Utils fonctions to prepare the data_ 
-├── make_data.py $~~~~~~~~~~~~~~~~~~~$_Prepare the data (need a bilingual dictionnary)_  
-├── make_expVSnonexp_data.py $~~~~~~~$_Prepare the data when comparing expert and non expert_  
+├── correct_annotations.ipynb   --------  _To manually correct the annotations_  
+├── data_utils.py ----------------------  _Utils fonctions to prepare the data_   
+├── make_data.py -----------------------  _Prepare the data (need a bilingual dictionnary)_  
+├── make_expVSnonexp_data.py -----------  _Prepare the data when comparing expert and non expert_  
 
 ### 1. First experiment : prepare expert and non expert datas
     run make_expVSnonexp_data.py to prepare the data (do the steps one after the other) :
