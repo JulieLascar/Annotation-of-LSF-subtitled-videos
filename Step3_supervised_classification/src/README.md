@@ -1,10 +1,10 @@
 # Src
-Main scripts to train, infer and test the models on videos.
+Main scripts to train, infer and visualize the models' predictions on sign language videos.
 
 ├── datasets.py -------------_Dataset classes for training and inferencing_  
 ├── evaluation.py -----------_Evaluate models (compute loss and metrics)_  
 ├── models.py ---------------_Models used for classification_  
-├── test_inference.py -------_Inference of a trained model on test set and print detected gloses  
+├── test_inference.py -------_Inference of a trained model on test set and print detected gloses_  
 ├── test_score.py -----------_Compute score on test set_  
 ├── test_viz_2preds.py ------_Visualize sign segmentation and compare 2 models_  
 ├── test_viz.py -------------_Visualize sign segmentation_  
@@ -19,4 +19,4 @@ run test_inference.py
 ### 3. Compute test score 
 run test_score.py
 ### 4. Visualize model predictions
-run test_viz.py test_viz_2preds.py
+run test_viz.py or test_viz_2preds.py
