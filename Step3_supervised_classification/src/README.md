@@ -1,0 +1,17 @@
+# Src
+
+├── datasets.py             _Dataset classes for training and inferencing_
+├── evaluation.py           _Evaluate models (compute loss and metrics)_
+├── models.py               _Models used for classification_
+├── test_inference.py       _Inference of a trained model on test set and print detected gloses (optional)
+├── test_score.py           _Compute score on test set_
+├── test_viz_2preds.py      -Visualize sign segmentation and compare 2 models_
+├── test_viz.py             _Visualize sign segmentation_
+├── training.py             _Train models_
+├── training_utils.py       _Utils fonctions for training
+└── utils.py                _Misc fonctions_
+
+### 1. Train the model
+### 2. Choose one trained model and do inference on the test set
+### 3. Compute test score
+### 4. Visualize model predictions
