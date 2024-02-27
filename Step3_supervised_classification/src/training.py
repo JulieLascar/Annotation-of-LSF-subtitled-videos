@@ -13,6 +13,8 @@ from evaluation import eval
 
 """
 Train a model and fix optimal nb of epochs.
+Save best model (optimize val recall)
+Save parameters and scores in training_results.csv
 """
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -33,7 +35,7 @@ model_nb = 2
 
 dataset_path = "Step3_supervised_annotation/" + dataset_name + "/"
 
-os.makedirs(dataset_path + "models", exist_ok=True)
+os.makedirs(dataset_path + "trained_models", exist_ok=True)
 
 # Load results
 try:
@@ -82,7 +84,7 @@ models = {"MLP1": MLP1, "MLP2": MLP2, "LSTM": Lstm, "biLSTM": BiLSTM}
 
 # Load models
 if load_model:
-    savepath = Path(f"{dataset_path}models/{model_name}_{model_nb}.pch")
+    savepath = Path(f"{dataset_path}trained_models/{model_name}_{model_nb}.pch")
     with savepath.open("rb") as fp:
         state = torch.load(fp)
     model = state.model
@@ -97,7 +99,7 @@ else:
     state = State(model, optimizer)  # Initialize state
     model.apply(init_weights_xavier)  # Init the neural network weights with Xavier initialization
 
-savepath = Path(f"{dataset_path}models/{model_name}_{len(df_results)}.pch")
+savepath = Path(f"{dataset_path}trained_models/{model_name}_{len(df_results)}.pch")
 
 # Define weights in loss function
 weight = weight1(Train_dataset, class_nb)
