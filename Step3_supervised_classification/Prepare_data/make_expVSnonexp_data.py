@@ -1,5 +1,5 @@
 """
-Prepare expert datas for training.
+Prepare expert and non expert datas for training.
 --> Do the steps one after the other.
 
 0. build expert dictionary from linguists annotation. (only for expert data)
@@ -8,7 +8,6 @@ Prepare expert datas for training.
 3. make train val test datas.
 4. Visualize datas.
 
-Remark : Can be used for non expert datas (if no need to compare between expert and non expert), just pass the step 0.
 """
 from data_utils import *
 import warnings
