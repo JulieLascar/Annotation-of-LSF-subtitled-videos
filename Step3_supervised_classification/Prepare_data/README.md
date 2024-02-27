@@ -12,8 +12,7 @@
 
 In both cases :  
 --> a new folder will be created (named in our example 'Mediapi_Expert' and 'Mediapi_NonExpert') containing :  
-
-**saved_files folder with pickle files** :  
+- **saved_files folder** :  
 d_gloses2Gid (dict) : {glose : gloseId}  
 d_Gid2gloses (dict) : {gloseId : glose}  
 d_Gid2Vid (dict) : {gloseId : [videos Id that contain this glose]}  
@@ -24,11 +23,11 @@ DTrain (list) : list of train  annotated videos
 DVal (list) : list of val annotated videos  
 DTest (list) : list of test annotated videos  
 
-**Visualisation of train, val, test datas** :  
-data_viz  
+- **data_viz** : Visualisation of train, val, test datas
+  
 
 ### 2. Second experiment : with a much larger lexicon  
 **run make_data.py** to prepare the data (do the steps one after the other) :  
---> a new folder will be created containing :  
-- saved_files  
-- data_viz  
+--> a new folder will be created (named in our example 'Mediapi_363') containing :  
+- **saved_files folder**  
+- **data_viz**  
