@@ -8,4 +8,7 @@ Step 2 : expert reviewing of the segmented signs.
 Step 3 : supervised classification.  
 
 Coming soon :  
-link to get Mediapi Swin Video features  
+- link to get Mediapi Swin Video features  
+- link to our paper
+
+![Comparison between the predictions of the non-expert (top), the expert (middle) classifiers and a ground truth (bottom) on a test video](g7.png)
