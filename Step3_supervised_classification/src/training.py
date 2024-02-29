@@ -20,12 +20,12 @@ Save parameters and scores in training_results.csv
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 # Args
-path_dict_gloses_videos = "../data/Mediapi/dictionnaire_NonExpert"
-dataset_name = "Mediapi_NonExpert"
-epochs = 9
+path_dict_gloses_videos = "../data/Mediapi/dictionnaire_DJ"
+dataset_name = "Mediapi_363"
+epochs = 10
 lr = 1e-4
-model_name = "MLP2"
-layers_nb = 2
+model_name = "MLP1"
+layers_nb = 1
 hidden_size = 200
 save_models = True
 write_results = True
@@ -33,7 +33,7 @@ load_model = False
 model_nb = 2
 
 
-dataset_path = "Step3_supervised_annotation/" + dataset_name + "/"
+dataset_path = "Step3_supervised_classification/" + dataset_name + "/"
 
 os.makedirs(dataset_path + "trained_models", exist_ok=True)
 
