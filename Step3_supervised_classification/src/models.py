@@ -4,7 +4,7 @@ import torch.nn as nn
 
 class MLP1(nn.Module):
     def __init__(self, dim_emb, class_nb, hidden_size=None, layers_nb=None) -> None:
-        super().__init__()
+        super(MLP1, self).__init__()
         self.L1 = nn.Linear(dim_emb, class_nb)
 
     def forward(self, X):
@@ -32,7 +32,7 @@ class MLP2(nn.Module):
 
 class Lstm(nn.Module):
     def __init__(self, dim_emb, class_nb, hidden_size, layers_nb):
-        super().__init__()
+        super(Lstm, self).__init__()
         self.lstm = nn.LSTM(input_size=dim_emb, hidden_size=hidden_size, num_layers=layers_nb)
         self.fc = nn.Linear(hidden_size, class_nb)
 
