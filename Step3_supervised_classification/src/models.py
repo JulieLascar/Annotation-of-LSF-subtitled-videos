@@ -3,7 +3,7 @@ import torch.nn as nn
 
 
 class MLP1(nn.Module):
-    def __init__(self, dim_emb, class_nb, hidden_size=None, layers_nb=None) -> None:
+    def __init__(self, dim_emb, class_nb, hidden_size=None, layers_nb=None):
         super(MLP1, self).__init__()
         self.L1 = nn.Linear(dim_emb, class_nb)
 
@@ -14,7 +14,7 @@ class MLP1(nn.Module):
 
 
 class MLP2(nn.Module):
-    def __init__(self, dim_emb, class_nb, hidden_size, layers_nb=None) -> None:
+    def __init__(self, dim_emb, class_nb, hidden_size, layers_nb=None):
         super(MLP2, self).__init__()
 
         self.seq = nn.Sequential(
