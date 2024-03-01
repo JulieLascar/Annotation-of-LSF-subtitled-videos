@@ -13,7 +13,7 @@ Main scripts to train, infer and visualize the models' predictions on sign langu
 └── utils.py ---------------- _Misc fonctions_  
 
 ### 1. Train the model 
-run training.py  
+run training.py (scores are saved in training_results.csv, best model is saved in trained_models)  
 ### 2. Choose one trained model and do inference on the test set 
 run test_inference.py
 ### 3. Compute test score 
