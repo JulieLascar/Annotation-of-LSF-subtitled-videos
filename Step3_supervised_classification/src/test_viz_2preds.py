@@ -12,8 +12,7 @@ def viz_2preds(vid, model_name1, model_name2, dataset_name1, dataset_name2, gt=F
     dataset_path1 = "Step3_supervised_annotation/" + dataset_name1 + "/"
     dataset_path2 = "Step3_supervised_annotation/" + dataset_name2 + "/"
 
-    # Données de vérité terrain, de prédiction
-
+    # Load predictions (need to do inference before)
     pred1 = pickle.load(open(f"{dataset_path1}d_Vid2pred_{model_name1}.pkl", "rb"))[vid].cpu().numpy().reshape(-1)
     pred2 = pickle.load(open(f"{dataset_path2}d_Vid2pred_{model_name2}.pkl", "rb"))[vid].cpu().numpy().reshape(-1)
 
