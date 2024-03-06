@@ -9,6 +9,7 @@ def frames2video(video_path: str, path_out: str, L_frames, fps=25):
         video_path (str): path to the video
         path_out (str): path to save the video
         L_frames (list): list of frames
+        fps (float): fps
     """
     if isinstance(L_frames, set):
         L_frames = list(L_frames)
