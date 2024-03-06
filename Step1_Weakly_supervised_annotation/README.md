@@ -5,6 +5,6 @@ This method is based on similarity calculation as explained in the paper [to do:
 
 ![schema](schema_similarite.png)
 
-**Detecting unknown signs by spotting through exemplars.**
+Detecting unknown signs by spotting through exemplars.
 -----------------------
 
