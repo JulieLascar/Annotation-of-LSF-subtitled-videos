@@ -10,7 +10,6 @@ from itertools import groupby, count
 import warnings
 
 warnings.simplefilter(action="ignore", category=FutureWarning)
-sys.path.append("Similarity_method/")
 
 
 class Similarity:
