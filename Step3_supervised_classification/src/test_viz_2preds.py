@@ -7,22 +7,21 @@ def viz_2preds(vid, model_name1, model_name2, dataset_name1, dataset_name2, gt=F
     """
     do visualisazion of 2 predictions for a video with or without gt.
     """
-    os.makedirs("Step3_supervised_annotation/Visualisations", exist_ok=True)
-    os.makedirs(f"Step3_supervised_annotation/Visualisations/viz_{dataset_name1}_{dataset_name2}", exist_ok=True)
-    dataset_path1 = "Step3_supervised_annotation/" + dataset_name1 + "/"
-    dataset_path2 = "Step3_supervised_annotation/" + dataset_name2 + "/"
+    os.makedirs("Step3_supervised_classification/Visualisations", exist_ok=True)
+    os.makedirs(f"Step3_supervised_classification/Visualisations/viz_{dataset_name1}_{dataset_name2}", exist_ok=True)
+    dataset_path1 = "Step3_supervised_classification/" + dataset_name1 + "/"
+    dataset_path2 = "Step3_supervised_classification/" + dataset_name2 + "/"
 
     # Load predictions (need to do inference before)
     pred1 = pickle.load(open(f"{dataset_path1}d_Vid2pred_{model_name1}.pkl", "rb"))[vid].cpu().numpy().reshape(-1)
     pred2 = pickle.load(open(f"{dataset_path2}d_Vid2pred_{model_name2}.pkl", "rb"))[vid].cpu().numpy().reshape(-1)
-
     if gt:
         gt = pickle.load(open(f"Visualisations/{vid}_gt.pkl", "rb"))
 
     dico = pickle.load(open("dico_cropId2subtitle.pkl", "rb"))
+
     labels1 = pickle.load(open(f"{dataset_path1}saved_files/d_Gid2gloses.pkl", "rb"))
     labels2 = pickle.load(open(f"{dataset_path2}saved_files/d_Gid2gloses.pkl", "rb"))
-
     _, ax = plt.subplots(figsize=(15, 5))
 
     band_width = 0.2
@@ -54,7 +53,7 @@ def viz_2preds(vid, model_name1, model_name2, dataset_name1, dataset_name2, gt=F
         alpha=0.7,
     )
     add_annotation(ax, pred2, 0.8, labels2)
-
+    print("ok1")
     if gt:
         ax.imshow(
             gt.reshape(1, -1),
@@ -73,7 +72,6 @@ def viz_2preds(vid, model_name1, model_name2, dataset_name1, dataset_name2, gt=F
         alpha=0.7,
     )
     add_annotation(ax, pred1, 1.1, labels1)
-
     if gt:
         ax.set_yticks(
             [0.4, 0.5, 0.8, 0.85, 1.1, 1.15, 1.2],
@@ -85,9 +83,9 @@ def viz_2preds(vid, model_name1, model_name2, dataset_name1, dataset_name2, gt=F
         )
         ax.set_yticklabels(["", "expertise", " With ", "expertise", "Without", ""])
         # ax.set_yticklabels(["", "363 classes", " With ", "44 classes", "With", ""])
-
+    print("ok2")
     plt.title(f"{dico[vid]}\n", loc="center", fontsize=12)
-    plt.savefig(f"Step3_supervised_annotation/Visualisations/viz_{dataset_name1}_{dataset_name2}/{vid}.png")
+    plt.savefig(f"Step3_supervised_classification/Visualisations/viz_{dataset_name1}_{dataset_name2}/{vid}.png")
 
 
 if __name__ == "__main__":
