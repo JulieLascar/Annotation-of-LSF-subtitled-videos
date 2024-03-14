@@ -103,8 +103,8 @@ def viz_2preds(vid, model_name1, model_name2, dataset_name1, dataset_name2, gt=F
         ax.set_yticks(
             [0.7, 0.8, 0.85, 1.1, 1.15, 1.2],
         )
-        ax.set_yticklabels(["", "expertise", " With ", "expertise", "Without", ""])
-        # ax.set_yticklabels(["", "363 classes", " With ", "44 classes", "With", ""])
+        # ax.set_yticklabels(["", "expertise", " With ", "expertise", "Without", ""])
+        ax.set_yticklabels(["", "363 classes", " With ", "44 classes", "With", ""])
     print("ok2")
     plt.title(f"{dico[vid]}\n", loc="center", fontsize=12)
     plt.savefig(f"Step3_supervised_classification/Visualisations/viz_{dataset_name1}_{dataset_name2}/{vid}.png")
@@ -114,8 +114,8 @@ if __name__ == "__main__":
     model_name1 = "MLP2_1"
     model_name2 = "MLP2_1"
 
-    dataset_name1 = "Mediapi_NonExpert"
-    dataset_name2 = "Mediapi_Expert"
+    dataset_name1 = "Mediapi_Expert"
+    dataset_name2 = "Mediapi_363"
 
     L_videos = [
         "997907db82_0014",
@@ -137,9 +137,9 @@ if __name__ == "__main__":
         "fa95139292_0030",
     ]
 
-    for vid in L_videos[0:1]:
+    for vid in L_videos:
         try:
-            viz_2preds(vid, model_name1, model_name2, dataset_name1, dataset_name2, gt=True)
+            viz_2preds(vid, model_name1, model_name2, dataset_name1, dataset_name2, gt=False)
             print("ok")
         except:
             print(f"Erreur vid : {vid}")
