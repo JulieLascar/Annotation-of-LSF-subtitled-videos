@@ -1,6 +1,7 @@
 import pickle
 import matplotlib.pyplot as plt
 import os
+import numpy as np
 
 
 def viz_2preds(vid, model_name1, model_name2, dataset_name1, dataset_name2, gt=False):
@@ -16,7 +17,7 @@ def viz_2preds(vid, model_name1, model_name2, dataset_name1, dataset_name2, gt=F
     pred1 = pickle.load(open(f"{dataset_path1}d_Vid2pred_{model_name1}.pkl", "rb"))[vid].cpu().numpy().reshape(-1)
     pred2 = pickle.load(open(f"{dataset_path2}d_Vid2pred_{model_name2}.pkl", "rb"))[vid].cpu().numpy().reshape(-1)
     if gt:
-        gt = pickle.load(open(f"Visualisations/{vid}_gt.pkl", "rb"))
+        GT = pickle.load(open(f"Step3_supervised_classification/Visualisations/{vid}_gt.pkl", "rb"))
 
     dico = pickle.load(open("dico_cropId2subtitle.pkl", "rb"))
 
@@ -27,46 +28,67 @@ def viz_2preds(vid, model_name1, model_name2, dataset_name1, dataset_name2, gt=F
     band_width = 0.2
 
     def add_annotation(ax, data, y, labels):
-        current_color = None
+        current_glose = None
         for i, value in enumerate(data):
             if value != 0:
-                color = labels[value]
-                if color != current_color:
+                glose = labels[value]
+                if glose != current_glose:
                     ax.annotate(
-                        color,
-                        xy=(i + 2, y),
+                        glose,
+                        xy=(i + 3, y),
                         ha="center",
                         va="center",
                         color="black",
                         fontsize=11,
                         rotation=90,
                     )
-                    current_color = color
+                    current_glose = glose
             else:
-                current_color = None
+                current_glose = None
 
+    mask = pred2.copy()
+    for i, c in enumerate(mask):
+        if c != 0 and (mask[i - 1] != c or mask[i + 1] != c) and mask[i - 1] != 800:
+            mask[i] = 800
+    mask = [900 if l not in [0, 800] else l for l in mask]
+    mask = np.array(mask)
     ax.imshow(
-        pred2.reshape(1, -1),
-        cmap="viridis",
+        mask.reshape(1, -1),
+        cmap="tab20c",
         aspect="auto",
         extent=[0, len(pred2), 0.8 - band_width / 2, 0.8 + band_width / 2],
         alpha=0.7,
     )
+    print(pred2)
     add_annotation(ax, pred2, 0.8, labels2)
-    print("ok1")
+
     if gt:
+        mask = GT.copy()
+        for i, c in enumerate(mask):
+            if c != 0 and (mask[i - 1] != c or mask[i + 1] != c) and mask[i - 1] != 800:
+                mask[i] = 800
+        mask = [900 if l not in [0, 800] else l for l in mask]
+        mask = np.array(mask)
+        print(mask)
         ax.imshow(
-            gt.reshape(1, -1),
-            cmap="viridis",
+            mask.reshape(1, -1),
+            cmap="tab20c",
             aspect="auto",
-            extent=[0, len(gt), 0.5 - band_width / 2, 0.5 + band_width / 2],
+            extent=[0, len(GT), 0.5 - band_width / 2, 0.5 + band_width / 2],
             alpha=0.7,
         )
-        add_annotation(ax, gt, 0.5, labels2)
+        print(GT)
+        add_annotation(ax, GT, 0.5, labels2)
 
+    mask = pred1.copy()
+    for i, c in enumerate(mask):
+        if c != 0 and (mask[i - 1] != c or mask[i + 1] != c) and mask[i - 1] != 800:
+            mask[i] = 800
+    mask = [900 if l not in [0, 800] else l for l in mask]
+    mask = np.array(mask)
     ax.imshow(
-        pred1.reshape(1, -1),
-        cmap="viridis",
+        mask.reshape(1, -1),
+        cmap="tab20c",
         aspect="auto",
         extent=[0, len(pred1), 1.1 - band_width / 2, 1.1 + band_width / 2],
         alpha=0.7,
@@ -115,9 +137,9 @@ if __name__ == "__main__":
         "fa95139292_0030",
     ]
 
-    for vid in L_videos[0:2]:
+    for vid in L_videos[0:1]:
         try:
-            viz_2preds(vid, model_name1, model_name2, dataset_name1, dataset_name2, gt=False)
+            viz_2preds(vid, model_name1, model_name2, dataset_name1, dataset_name2, gt=True)
             print("ok")
         except:
             print(f"Erreur vid : {vid}")
