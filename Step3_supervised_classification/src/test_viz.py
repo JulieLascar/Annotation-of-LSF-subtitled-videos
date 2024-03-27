@@ -12,12 +12,13 @@ Visualization of videos predictions in the test set or specific videos which sub
 
 
 def viz_preds(vid, model_name, dataset_name, gt=True):
-    """do visualisazion of predictions for a video.
+    """do visualisazion of predictions for a video with ot without ground truth.
 
     Args:
         vid (str)
         model_name (str)
         dataset_name (str)
+        gt (bool) : if ground truth
     """
     os.makedirs("Step3_supervised_annotation/Visualisations", exist_ok=True)
     os.makedirs(f"Step3_supervised_annotation/Visualisations/viz_{dataset_name}_{model_name}", exist_ok=True)

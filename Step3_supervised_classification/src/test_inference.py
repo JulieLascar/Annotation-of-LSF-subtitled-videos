@@ -4,7 +4,7 @@ from utils import inference, analyse_pred
 
 """
 1. Do inference of a model in the test set and save predictions in d_Vid2pred_{model_name}.pkl.
-2. For each video in the test set, print the predicted gloses of the video and compare to the ground truth if any. (Optional)
+2. For each video in the test set, print the predicted signs of the video and compare to the ground truth if any. (Optional)
 """
 
 # Args

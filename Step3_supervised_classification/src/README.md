@@ -4,7 +4,7 @@ Main scripts to train, infer and visualize the models' predictions on sign langu
 ├── datasets.py ------------- _Dataset classes for training and inferencing_  
 ├── evaluation.py ----------- _Evaluate models (compute loss and metrics)_  
 ├── models.py --------------- _Models used for classification_  
-├── test_inference.py ------- _Inference of a trained model on test set and print detected gloses_  
+├── test_inference.py ------- _Inference of a trained model on test set and print detected signs_  
 ├── test_score.py ----------- _Compute score on test set_  
 ├── test_viz_2preds.py ------ _Visualize sign segmentation and compare 2 models_  
 ├── test_viz.py ------------- _Visualize sign segmentation_  

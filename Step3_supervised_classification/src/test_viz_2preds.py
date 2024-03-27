@@ -6,7 +6,7 @@ import numpy as np
 
 def viz_2preds(vid, model_name1, model_name2, dataset_name1, dataset_name2, gt=False):
     """
-    do visualisazion of 2 predictions for a video with or without gt.
+    do visualisazion of 2 predictions for a video with or without ground truth.
     """
     os.makedirs("Step3_supervised_classification/Visualisations", exist_ok=True)
     os.makedirs(f"Step3_supervised_classification/Visualisations/viz_{dataset_name1}_{dataset_name2}", exist_ok=True)

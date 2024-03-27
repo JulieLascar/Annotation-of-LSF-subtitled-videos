@@ -13,7 +13,7 @@ from evaluation import eval
 
 """
 Train a model and fix optimal nb of epochs.
-Save best model (optimize val recall)
+Save best model (optimize val recall) in folder trained models.
 Save parameters and scores in training_results.csv
 """
 
