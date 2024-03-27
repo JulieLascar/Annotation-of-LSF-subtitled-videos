@@ -1,4 +1,5 @@
 # Prepare data
+Code to prepare datas as presented in the paper (sections 6.1 and 6.2).  
 
 ├── correct_annotations.ipynb   --------  _To manually correct the annotations_  
 ├── data_utils.py ----------------------  _Utils fonctions to prepare the data_   
