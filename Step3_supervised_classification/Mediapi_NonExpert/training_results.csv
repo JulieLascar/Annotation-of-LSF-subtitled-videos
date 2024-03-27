@@ -1,3 +1,0 @@
-model,class_nb,lr,layer_nb,hidden_size,epoch,val_acc,val IoU,val P,val R,val_F1,train_acc,train_F1,saved_model
-MLP2,37,0.0001,2,200,2,0.946,0.679,0.711,0.897,0.779,0.943,0.781,MLP2_0
-MLP2,37,0.0001,2,200,2,0.947,0.677,0.716,0.889,0.775,0.942,0.778,MLP2_1

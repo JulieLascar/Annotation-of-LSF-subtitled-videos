@@ -1,9 +1,8 @@
 # Perso
-d_Vid2pred_*
-**/saved_files/*
 Step1_Weakly_supervised_annotation/Dictionnaire/*
 Step3_supervised_classification/Visualisations/*
 Step1_Weakly_supervised_annotation/Dictionnaire/*
+**/Mediapi*/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

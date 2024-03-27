@@ -10,5 +10,3 @@ The system architecture is illustrated in the figure below :
 scripts in **Prepare_data** 
 ### 2. Train models, evaluate them and visualize predictions
 scripts in **src**  
-
-Mediapi_363, MediapiExpert, MediapiNonExpert contains results from 3 different French-LSF lexicons that are presented in the paper.
