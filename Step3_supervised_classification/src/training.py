@@ -21,10 +21,10 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 # Args
 path_dict_gloses_videos = "../data/Mediapi/dictionnaire_DJ"
-dataset_name = "Mediapi_363"
+dataset_name = "Mediapi_Expert"
 epochs = 10
 lr = 1e-4
-model_name = "MLP1"
+model_name = "MLP2"
 layers_nb = 1
 hidden_size = 200
 save_models = True
@@ -38,9 +38,9 @@ dataset_path = "Step3_supervised_classification/" + dataset_name + "/"
 os.makedirs(dataset_path + "trained_models", exist_ok=True)
 
 # Load results
-try:
+if os.path.exists(dataset_path + "training_results.csv"):
     df_results = pd.read_csv(dataset_path + "training_results.csv")
-except:
+else:
     df_results = pd.DataFrame(
         columns=[
             "model",
@@ -176,9 +176,9 @@ if write_results:
         }
     )
 
-    try:
+    if "df_results" in globals():
         df_results = pd.concat([df_results, df_temp])
-    except:
+    else:
         df_results = df_temp
 
     df_results.to_csv(dataset_path + "training_results.csv", index=False)
