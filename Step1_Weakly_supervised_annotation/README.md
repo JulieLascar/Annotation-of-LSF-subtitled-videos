@@ -7,6 +7,6 @@ Content
 -----------------------
 
 ├── similarity.py   ---------------  _Similarity class to calculate L vectors for a given label_  
-├── create_wordvideos.py -----  _Functions to create a bilingual lexicon label : LSF videos_   
+├── create_wordvideos.py -----  _Functions to create a bilingual lexicon {label : LSF videos}_   
 ├── main.py ------------------------  _File to run_  
 ├── video_utils.py ---------------  _Make videos from list of frames, change fps_  
