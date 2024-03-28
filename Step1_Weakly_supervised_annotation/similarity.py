@@ -14,7 +14,7 @@ warnings.simplefilter(action="ignore", category=FutureWarning)
 
 class Similarity:
     """
-    Similarity class
+    Similarity class to calculate L vectors for a given label
 
     """
 

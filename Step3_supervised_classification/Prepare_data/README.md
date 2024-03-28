@@ -19,8 +19,8 @@ d_Gid2gloses (dict) : {gloseId : glose}
 d_Gid2Vid (dict) : {gloseId : [videos Id that contain this glose]}  
 d_Vid2Labels (dict) : {Vid : [0011003333333000000]} annotation of each v_id  
 L_videos (list) : list of all annotated videos  
-ex_to_look (list): examples with gloses that overlap and require manual inspection  
-DTrain (list) : list of train  annotated videos  
+ex_to_look (list): examples with signs that overlap and require manual inspection  
+DTrain (list) : list of train annotated videos  
 DVal (list) : list of val annotated videos  
 DTest (list) : list of test annotated videos  
 

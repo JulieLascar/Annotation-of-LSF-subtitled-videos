@@ -44,7 +44,7 @@ def create_word_videos_base(
         L_word_names (list): Names of words (to make a folder)
         Lwords (list): we will select videos which subtitle contain at least one of the words of Lwords
         L_noword (list): we will not select videos which subtitles contain one of the words of L nowords
-        L_word_neg (list): for L- computing (see paper)
+        L_word_neg (list): for negative examples and computing L-
         seq_threshold (int, optional): minimal sequence lenght . Defaults to 3.
         sim_threshold (float, optional): similarity threshold. Defaults to 0.6.
         L_threshold (float, optional): L score threshold. Defaults to 0.5.
@@ -54,7 +54,7 @@ def create_word_videos_base(
         clustering (bool, optional): if we want to use clustering. Defaults to True.
         viz_clusters (bool, optional): if we want to visualize the datas. Defaults to True.
         video_path (str, optional): path to the continous videos. Defaults to "../data/Mediapi/video_crops_train/".
-        df_path (str, optional): path to the metadatas csv. Defaults to "mediapi_train_clean1.csv".
+        df_path (str, optional): path to the metadatas csv (video ids and signer ids). Defaults to "mediapi_train_clean1.csv".
     """
     os.makedirs(path_to_dict, exist_ok=True)  # create Dictionnary folder
 
@@ -187,7 +187,7 @@ def create_word_videos_signer(
         L_word_names (list): Names of words (to make a folder)
         Lwords (list): we will select videos which subtitle contain at least one of the words of Lwords
         L_noword (list): we will not select videos which subtitles contain one of the words of L nowords
-        L_word_neg (list): for L- computing (see paper)
+        L_word_neg (list): for negative examples and computing L-
         seq_threshold (int, optional): minimal sequence lenght . Defaults to 3.
         sim_threshold (float, optional): similarity threshold. Defaults to 0.6.
         L_threshold (float, optional): L score threshold. Defaults to 0.5.
@@ -197,7 +197,7 @@ def create_word_videos_signer(
         clustering (bool, optional): if we want to use clustering. Defaults to True.
         viz_clusters (bool, optional): if we want to visualize the datas. Defaults to True.
         video_path (str, optional): path to the continous videos. Defaults to "../data/Mediapi/video_crops_train/".
-        df_path (str, optional): path to the metadatas csv. Defaults to "mediapi_train_clean1.csv".
+        df_path (str, optional): path to the metadatas csv (video ids and signer ids). Defaults to "mediapi_train_clean1.csv".
     """
 
     os.makedirs(path_to_dict, exist_ok=True)  # create Dictionnary folder
