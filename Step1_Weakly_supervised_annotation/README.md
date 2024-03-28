@@ -6,7 +6,7 @@ This method is based on similarity calculation.
 Content
 -----------------------
 
-├── similarity.py   -----------  _Similarity class to calculate L vectors for a given label_  
-├── create_wordvideos.py ------  _functions to create a bilingual lexicon label : LSF videos_   
-├── main.py -------------------  _file to run_  
-├── video_utils.py ------------  _make videos from list of frames, change fps _  
+├── similarity.py   ---------------  _Similarity class to calculate L vectors for a given label_  
+├── create_wordvideos.py -----  _Functions to create a bilingual lexicon label : LSF videos_   
+├── main.py ------------------------  _File to run_  
+├── video_utils.py ---------------  _Make videos from list of frames, change fps_  
