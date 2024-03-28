@@ -16,8 +16,8 @@ path_to_dict = "Step1_Weakly_supervised_annotation/Dictionnaire/"  # path to the
 df_path = "mediapi_train_clean1.csv"  # csv that contains videos ids with signer ids
 feature_path = "../data/Mediapi/features_mediapi/swin/"  # path to the video features
 
-L_word_names = ["7'JIM"]  # list of labels (name of the folder)
-Lwords = [["7'JIM"]]  # we will select videos which subtitle contain at least one of the words of Lwords
+L_word_names = ["monde"]  # list of labels (name of the folder)
+Lwords = [["monde", "Monde"]]  # we will select videos which subtitle contain at least one of the words of Lwords
 L_noword = [[]]  # we will not select videos which subtitles contain one of the words of L nowords
 L_word_neg = [[]]  # for negative examples and computing L-
 method = "signer"  # choice to sort videos by signer or not ('singer' or 'base')

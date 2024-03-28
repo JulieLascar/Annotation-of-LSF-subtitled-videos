@@ -21,17 +21,17 @@ class Similarity:
     def __init__(
         self,
         L_video_id: list,  # a list of video ids
-        word: str,  # name of the list of words
-        L_word: list,  # list of words
+        label: str,  # name of the label
+        L_word: list,  # we will select videos which subtitle contain one of the word of L_word
         dico: dict,  # a dictionnary that maps each video id with its subtitle
         feature_path: str = "../data/Mediapi/features_mediapi/swin/",
         pr: bool = True,  # gives infos while working
         L_nowords: list = [],  # list of words prohibited un subtitles
-        L_word_neg: list = [],
+        L_word_neg: list = [],  # list of negative words (to compute L-)
         n_max=100,  # maximum nb of positives videos
     ):
         self.L_video_id = L_video_id
-        self.word = word
+        self.label = label
         self.L_word = L_word
         self.L_nowords = L_nowords
         self.dico = dico
@@ -39,12 +39,12 @@ class Similarity:
         self.pr = pr
         self.L_word_neg = L_word_neg
         self.n_max = n_max
-        self.L_video_id_with_word = self.get_videos_id_with_word()  # list of all the video ids that contain that special word
-        self.L_video_id_without_word = self.get_videos_id_without_word()
+        self.L_video_id_with_word = self.get_videos_id_with_word()  # list of all the positive video ids (to compute L+)
+        self.L_video_id_without_word = self.get_videos_id_without_word()  # list of all the negative video ids (to compute L-)
         self.Video_nb = len(self.L_video_id_with_word)
         self.Features = self.set_Features()  # list of features of each video from L_video_id_with_word
 
-        print(f"There are {self.Video_nb} videos with the words of the list {self.word}.\n")
+        print(f"There are {self.Video_nb} videos with the words of the list {self.label}.\n")
 
     def get_videos_id_with_word(self):
         """
@@ -64,17 +64,17 @@ class Similarity:
 
     def get_videos_id_without_word(self):
         """
-        Given a word, retrieve all the videos which subtitles don't contain this word.
+        Given a list of word (L_words), retrieve all the videos which subtitles don't contain any of this words, but contain one of the word of L_word_neg.
         """
         L = []
         for video_id in self.L_video_id:
             subtitle = self.dico[video_id]
-            if self.L_word_neg != []:
-                for w in self.L_word_neg:
-                    if self.word not in subtitle and (w in subtitle) and (video_id not in L):
-                        L.append(video_id)
-            else:
-                if self.word not in subtitle:
+            if not any(word in subtitle for word in self.L_word):
+                if self.L_word_neg != []:
+                    for w in self.L_word_neg:
+                        if (w in subtitle) and (video_id not in L):
+                            L.append(video_id)
+                else:
                     L.append(video_id)
         return L
 
@@ -130,7 +130,7 @@ class Similarity:
             else:
                 feature_name = "swin"
             os.makedirs("Step1_Weakly_supervised_annotation/Sim_images/", exist_ok=True)
-            fig.savefig(f"Step1_Weakly_supervised_annotation/Sim_images/{self.word}{i}{j}_{feature_name}.png")
+            fig.savefig(f"Step1_Weakly_supervised_annotation/Sim_images/{self.label}{i}{j}_{feature_name}.png")
 
         return sim_mat
 

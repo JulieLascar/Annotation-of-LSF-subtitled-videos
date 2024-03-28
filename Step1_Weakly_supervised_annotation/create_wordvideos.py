@@ -3,7 +3,7 @@ import sys
 
 sys.path.append("Step1_Weakly_supervised_annotation")
 
-from utils import *
+from video_utils import *
 from similarity import *
 import pandas as pd
 import pickle
@@ -68,7 +68,7 @@ def create_word_videos_base(
 
         sim = Similarity(
             L_video_id=list(df_train.video_id),
-            word=word,
+            label=word,
             L_word=Lwords[i],
             dico=dico_cropId2subtitle,
             feature_path=feature_path,
@@ -145,7 +145,7 @@ def create_word_videos_base(
             results.to_csv(path_word + "/confidence_scores.csv", index=False)
 
         # Clustering
-        if clustering is True:
+        if clustering is True and "results" in locals():
             cluster(path_word, results, feature_path, viz_clusters)
 
         # delete empty folders
@@ -215,7 +215,7 @@ def create_word_videos_signer(
             print(f"similarity with signer {s_id}")
             sim = Similarity(
                 L_video_id=list(df_train[df_train.signer_id_deepface == s_id].video_id),
-                word=word,
+                label=word,
                 L_word=Lwords[i],
                 dico=dico_cropId2subtitle,
                 feature_path=feature_path,
@@ -292,7 +292,7 @@ def create_word_videos_signer(
             results.to_csv(path_word + "/confidence_scores.csv", index=False)
 
         # Clustering
-        if clustering is True:
+        if clustering is True and "results" in locals():
             cluster(path_word, results, feature_path, viz_clusters)
 
         # delete empty folders
