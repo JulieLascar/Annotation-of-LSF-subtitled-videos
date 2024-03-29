@@ -1,4 +1,3 @@
-import sys
 import os
 import random
 import scipy.io as sio
@@ -62,12 +61,15 @@ class Similarity:
                     L.append(video_id)
         return L
 
-    def get_videos_id_without_word(self):
+    def get_videos_id_without_word(self, L_video_id=None):
         """
         Given a list of word (L_words), retrieve all the videos which subtitles don't contain any of this words, but contain one of the word of L_word_neg.
         """
+        if L_video_id is None:
+            L_video_id = self.L_video_id
+
         L = []
-        for video_id in self.L_video_id:
+        for video_id in L_video_id:
             subtitle = self.dico[video_id]
             if not any(word in subtitle for word in self.L_word):
                 if self.L_word_neg != []:
@@ -185,10 +187,9 @@ class Similarity:
 
             if n_moins < len(self.L_video_id_without_word):
                 L_negative_videos_idx = random.sample(list(range(0, len(self.L_video_id_without_word))), n_moins)
-
             else:
                 L_negative_videos_idx = list(range(0, len(self.L_video_id_without_word)))
-
+            print("nb of negative exs :", len(L_negative_videos_idx))
             for i in L_positive_videos_idx:
                 vid = self.L_video_id_with_word[i]
                 for j in L_negative_videos_idx:
