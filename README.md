@@ -5,20 +5,6 @@ The aim of our current project is to contribute in developing resources and auto
 We propose a three stages approach for the automatic annotation of lexical units in LSF videos, using a subtitled corpus without annotation.  
 
 ### [Step 1 : weakly supervised segmentation of specific signs in the videos, without use of any isolated example](Step1_Weakly_supervised_annotation)
-![gif1](https://github.com/JulieLascar/Annotation-of-LSF-subtitled-videos/assets/97949668/b861d7af-c5a7-46b2-933e-a800b289e327)
-
-In this section, we construct a dictionary of signs captured from continuous subtitled videos of Mediapi-RGB Dataset. 
-
-This method is based on similarity calculation.
-
-Content
------------------------
-
-├── similarity.py   ---------------  _Similarity class to calculate L vectors for a given label_  
-├── create_wordvideos.py -----  _Functions to create a bilingual lexicon {label : LSF videos}_   
-├── main.py ------------------------  _File to run_  
-├── video_utils.py ---------------  _Make videos from list of frames, change fps_  
-
 
 ### Step 2 : expert reviewing of the segmented signs.
 - Define the quality level of each sign.
