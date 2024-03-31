@@ -11,3 +11,6 @@ Content
 ├── main.py ------------------------  _File to run_  
 ├── video_utils.py ---------------  _Make videos from list of frames, change fps_  
 
+![gif1](https://github.com/JulieLascar/Annotation-of-LSF-subtitled-videos/assets/97949668/b861d7af-c5a7-46b2-933e-a800b289e327)
+
+
