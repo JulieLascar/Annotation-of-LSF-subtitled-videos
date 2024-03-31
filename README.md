@@ -4,7 +4,7 @@ This repository is the official implementation of **Annotation of LSF subtitled 
 The aim of our current project is to contribute in developing resources and automatic analysis of LSF videos.  
 We propose a three stages approach for the automatic annotation of lexical units in LSF videos, using a subtitled corpus without annotation.  
 
-### Step 1 : weakly supervised segmentation of specific signs in the videos, without use of any isolated example.  
+### [Step 1 :[weakly supervised segmentation of specific signs in the videos, without use of any isolated example](https://github.com/JulieLascar/Annotation-of-LSF-subtitled-videos/step1_Weakly_supervised_annotation)
 ### Step 2 : expert reviewing of the segmented signs.  
  ![friday](https://github.com/JulieLascar/Annotation-of-LSF-subtitled-videos/assets/97949668/0ecabffb-7aa0-4693-81af-40193c7baf89)
  
@@ -18,3 +18,4 @@ Canada, France, Germany, Italy, Japan, the United Kingdom and the United States 
 Coming soon :  
 - link to get Mediapi Swin Video features  
 - link to our paper
+/home/jlascar/Documents/Annotation-of-LSF-subtitled-videos/Step1_Weakly_supervised_annotation
