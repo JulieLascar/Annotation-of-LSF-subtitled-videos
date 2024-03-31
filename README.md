@@ -7,6 +7,7 @@ We propose a three stages approach for the automatic annotation of lexical units
 ### Step 1 : weakly supervised segmentation of specific signs in the videos, without use of any isolated example.  
 ### Step 2 : expert reviewing of the segmented signs.  
  ![friday](https://github.com/JulieLascar/Annotation-of-LSF-subtitled-videos/assets/97949668/0ecabffb-7aa0-4693-81af-40193c7baf89)
+ 
 ### Step 3 : supervised classification.  
 
 The figure below is a comparison between the predictions of 2 classifiers which have been trained with automatic annotated datas previously checked non-experts (top) and experts (middle), and a ground truth (bottom) on a test video with the subtitle : "But the G7 countries -
