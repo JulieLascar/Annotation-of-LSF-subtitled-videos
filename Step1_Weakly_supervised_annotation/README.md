@@ -11,4 +11,3 @@ Content
 ├── main.py ------------------------  _File to run_  
 ├── video_utils.py ---------------  _Make videos from list of frames, change fps_  
 
-<img src="images/gif1.gif" width=600px>
