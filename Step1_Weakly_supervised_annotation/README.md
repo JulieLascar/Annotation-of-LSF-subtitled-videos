@@ -2,7 +2,6 @@
 In this section, we construct a dictionary of signs captured from continuous subtitled videos of Mediapi-RGB Dataset. 
 
 This method is based on similarity calculation.
-![mon_gif](https://github.com/JulieLascar/Annotation-of-LSF-subtitled-videos/assets/97949668/fc13ae68-2a28-4bf5-ac29-ac8341ead8c8)
 
 Content
 -----------------------
@@ -12,4 +11,4 @@ Content
 ├── main.py ------------------------  _File to run_  
 ├── video_utils.py ---------------  _Make videos from list of frames, change fps_  
 
-
+<img src="images/gif1.gif" width=600px>
