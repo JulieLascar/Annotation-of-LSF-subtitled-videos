@@ -1,6 +1,6 @@
 # Step1_Weakly_supervised_annotation
 
-![mon_gif](https://github.com/JulieLascar/Annotation-of-LSF-subtitled-videos/assets/97949668/a853e87a-4a38-441b-8309-cad07f28fe5f)
+![mon_gif](https://github.com/JulieLascar/Annotation-of-LSF-subtitled-videos/assets/97949668/a853e87a-4a38-441b-8309-cad07f28fe5f) | ![friday](https://github.com/JulieLascar/Annotation-of-LSF-subtitled-videos/assets/97949668/0ecabffb-7aa0-4693-81af-40193c7baf89)
 
 
 In this section, we construct a dictionary of signs captured from continuous subtitled videos of Mediapi-RGB Dataset. 
