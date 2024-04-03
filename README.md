@@ -21,4 +21,3 @@ Canada, France, Germany, Italy, Japan, the United Kingdom and the United States 
 Coming soon :  
 - link to get Mediapi Swin Video features  
 - link to our paper
-/home/jlascar/Documents/Annotation-of-LSF-subtitled-videos/Step1_Weakly_supervised_annotation
