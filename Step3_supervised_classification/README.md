@@ -7,6 +7,6 @@ The system architecture is illustrated in the figure below :
 ![schema](../images/archi.png "Model Architecture")
 
 ### 1. Prepare data for training
-scripts in **Prepare_data** 
+scripts in [**Prepare_data** ](Prepare_data)
 ### 2. Train models, evaluate them and visualize predictions
-scripts in **src**  
+scripts in [**src**](src)  
