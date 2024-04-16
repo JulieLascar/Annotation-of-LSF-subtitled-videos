@@ -1,6 +1,7 @@
 import pickle
 import torch
 from utils import inference, analyse_pred
+import os
 
 """
 1. Do inference of a model in the test set and save predictions in d_Vid2pred_{model_name}.pkl.
@@ -14,10 +15,10 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 analyse = False
 
 # Inference on Test set
-dataset_path = "Step3_supervised_annotation/" + dataset_name + "/"
-DTest = pickle.load(open(dataset_path + "saved_files/DTest.pkl", "rb"))
+dataset_path = os.path.join("Step3_supervised_annotation", dataset_name)
+DTest = pickle.load(open(os.path.join(dataset_path, "saved_files", "DTest.pkl"), "rb"))
 d_Vid2pred = inference(DTest, dataset_name, model_name, device)
-pickle.dump(d_Vid2pred, open(dataset_path + f"d_Vid2pred_{model_name}.pkl", "wb"))  # Save predictions
+pickle.dump(d_Vid2pred, open(os.path.join(dataset_path, f"d_Vid2pred_{model_name}.pkl"), "wb"))  # Save predictions
 
 if analyse:
     # Print results :
