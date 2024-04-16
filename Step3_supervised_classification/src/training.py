@@ -63,15 +63,16 @@ else:
 # Load utils files
 df = pd.read_csv("mediapi_train_clean1.csv")  # load global csv with meta datas
 gloses_names = next(walk(path_dict_gloses_videos), (None, None, []))[1]  # load list of gloses names
+save_files_path = os.path.join(dataset_path, "saved_files")
 
-d_gloses2Gid = pickle.load(open(dataset_path + "saved_files/d_gloses2Gid.pkl", "rb"))
-d_Gid2gloses = pickle.load(open(dataset_path + "saved_files/d_Gid2gloses.pkl", "rb"))
-d_Gid2Vid = pickle.load(open(dataset_path + "saved_files/d_Gid2Vid.pkl", "rb"))
-d_Vid2Labels = pickle.load(open(dataset_path + "saved_files/d_Vid2Labels.pkl", "rb"))
-d_Vid2Gid = pickle.load(open(dataset_path + "saved_files/d_Vid2Gid.pkl", "rb"))
-L_videos = pickle.load(open(dataset_path + "saved_files/L_videos.pkl", "rb"))
-DTrain = pickle.load(open(dataset_path + "saved_files/DTrain.pkl", "rb"))
-DVal = pickle.load(open(dataset_path + "saved_files/DVal.pkl", "rb"))
+d_Vid2Labels = pickle.load(open(os.path.join(save_files_path, "d_Vid2Labels.pkl"), "rb"))
+d_Gid2gloses = pickle.load(open(os.path.join(save_files_path, "d_Gid2gloses.pkl"), "rb"))
+d_gloses2Gid = pickle.load(open(os.path.join(save_files_path, "d_gloses2Gid.pkl"), "rb"))
+d_Gid2Vid = pickle.load(open(os.path.join(save_files_path, "d_Gid2Vid.pkl"), "rb"))
+d_Vid2Gid = pickle.load(open(os.path.join(save_files_path, "d_Vid2Gid.pkl"), "rb"))
+L_videos = pickle.load(open(os.path.join(save_files_path, "L_videos.pkl"), "rb"))
+DTrain = pickle.load(open(os.path.join(save_files_path, "DTrain.pkl"), "rb"))
+DVal = pickle.load(open(os.path.join(save_files_path, "DVal.pkl"), "rb"))
 
 # Make Datasets
 Train_dataset = Videofeatures_Labels_Dataset(d_Vid2Labels, DTrain)
@@ -84,7 +85,8 @@ models = {"MLP1": MLP1, "MLP2": MLP2, "LSTM": Lstm, "biLSTM": BiLSTM}
 
 # Load models
 if load_model:
-    savepath = Path(f"{dataset_path}trained_models/{model_name}_{model_nb}.pch")
+    savepath = Path(os.path.join(dataset_path, "trained_models", f"{model_name}_{model_nb}.pch"))
+
     with savepath.open("rb") as fp:
         state = torch.load(fp)
     model = state.model
@@ -99,7 +101,7 @@ else:
     state = State(model, optimizer)  # Initialize state
     model.apply(init_weights_xavier)  # Init the neural network weights with Xavier initialization
 
-savepath = Path(f"{dataset_path}trained_models/{model_name}_{len(df_results)}.pch")
+savepath = Path(os.path.join(dataset_path, "trained_models", f"{model_name}_{len(df_results)}.pch"))
 
 # Define weights in loss function
 weight = weight1(Train_dataset, class_nb)
@@ -181,4 +183,4 @@ if write_results:
     else:
         df_results = df_temp
 
-    df_results.to_csv(dataset_path + "training_results.csv", index=False)
+    df_results.to_csv(os.path.join(dataset_path, "training_results.csv"), index=False)
