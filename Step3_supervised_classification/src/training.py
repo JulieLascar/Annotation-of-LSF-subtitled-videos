@@ -33,13 +33,13 @@ load_model = False
 model_nb = 2
 
 
-dataset_path = "Step3_supervised_classification/" + dataset_name + "/"
+dataset_path = os.path.join("Step3_supervised_classification", dataset_name)
 
-os.makedirs(dataset_path + "trained_models", exist_ok=True)
+os.makedirs(os.path.join(dataset_path, "trained_models"), exist_ok=True)
 
 # Load results
-if os.path.exists(dataset_path + "training_results.csv"):
-    df_results = pd.read_csv(dataset_path + "training_results.csv")
+if os.path.exists(os.path.join(dataset_path, "training_results.csv")):
+    df_results = pd.read_csv(os.path.join(dataset_path, "training_results.csv"))
 else:
     df_results = pd.DataFrame(
         columns=[
