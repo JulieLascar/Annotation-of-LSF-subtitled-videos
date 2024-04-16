@@ -7,7 +7,7 @@ Code to prepare datas as presented in the paper (sections 6.1 and 6.2).
 ├── make_expVSnonexp_data.py -----------  _Prepare the data when comparing expert and non expert (need 2 bilingual dictionnaries)_  
 
 ### 1. First experiment : prepare expert and non expert datas
-**run make_expVSnonexp_data.py** to prepare the data (do the steps one after the other) :  
+run `make_expVSnonexp_data.py` to prepare the data (do the steps one after the other) :  
     (i) make expert data  
     (ii) make non expert data  
 
@@ -28,7 +28,7 @@ DTest (list) : list of test annotated videos
   
 
 ### 2. Second experiment : with a much larger lexicon  
-**run make_data.py** to prepare the data (do the steps one after the other) :  
+run `make_data.py` to prepare the data (do the steps one after the other) :  
 --> a new folder will be created (named for example 'Mediapi_363') containing :  
 - **saved_files folder**  
 - **data_viz**  
