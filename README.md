@@ -18,6 +18,8 @@ Canada, France, Germany, Italy, Japan, the United Kingdom and the United States 
 
  ![Comparison between the predictions of the non-expert (top), the expert (middle) classifiers and a ground truth (bottom) on a test video](images/g7_new.png)
 
+
+**[Link to Mediapi-rgb Corpus (including Swin Video features](https://www.ortolang.fr/market/corpora/mediapi-rgb/)**  
+
 Coming soon :  
-- link to get Mediapi Swin Video features  
 - link to our paper
