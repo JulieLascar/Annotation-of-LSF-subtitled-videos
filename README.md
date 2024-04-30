@@ -1,6 +1,6 @@
 # Annotation of LSF subtitled videos without a pre-existing dictionary (LREC-Coling Workshop 2024)
 
-This repository is the official implementation of **Annotation of LSF subtitled videos without a pre-existing dictionary**.(coming soon!)  
+This repository is the official implementation of **Annotation of LSF subtitled videos without a pre-existing dictionary** (coming soon!).  
 The aim of our current project is to contribute in developing resources and automatic analysis of LSF videos.  
 We propose a three stages approach for the automatic annotation of lexical units in LSF videos, using a subtitled corpus without annotation.  
 
