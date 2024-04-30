@@ -382,7 +382,6 @@ def create_word_videos_semantic(
 
                 except IndexError:
                     pass
-
         # compute L_text : list of subtitles containing one of the words from L_words
         L_text = []
         for video_id in L_video_id_word:
@@ -396,16 +395,16 @@ def create_word_videos_semantic(
             for k, t in enumerate(L_text):
                 encoded_input = tokenizer(t, return_tensors="pt")
                 output = model(**encoded_input)
+                if len(torch.where(encoded_input.input_ids[0] == L_word_tokens[k])[0]) != 0:
+                    try:
+                        token_idx = torch.where(encoded_input.input_ids[0] == L_word_tokens[k])[0].item()
+                    except:
+                        token_idx = torch.where(encoded_input.input_ids[0] == L_word_tokens[k])[0][0].item()
+                        print(f"several times the word in : {t}  {i}. we took the first one")
 
-                try:
-                    token_idx = torch.where(encoded_input.input_ids[0] == L_word_tokens[k])[0].item()
-                except:
-                    token_idx = torch.where(encoded_input.input_ids[0] == L_word_tokens[k])[0][0].item()
-                    print(f"several times the word in : {t}  {i}. we took the first one")
-
-                L_token_idx.append(token_idx)
-                embedding = output.last_hidden_state[0][token_idx]
-                L_embeddings.append(embedding / torch.norm(embedding))  # normalize embedding
+                    L_token_idx.append(token_idx)
+                    embedding = output.last_hidden_state[0][token_idx]
+                    L_embeddings.append(embedding / torch.norm(embedding))  # normalize embedding
 
             word_emb_mat = torch.stack(L_embeddings)  # matrix of word embeddings -- dim : nb_texts * 768
             word_text_sim = (
