@@ -390,7 +390,7 @@ def create_word_videos_semantic(
         # Compute word embeddings in each context and compute similarity between embeddings
         L_token_idx = []  # list of word token index (the place where the token is in each subtitle)
         L_embeddings = []  # list of embeddings of the token in each subtitle
-
+        L_video_id_wordbis = []
         with torch.no_grad():
             for k, t in enumerate(L_text):
                 encoded_input = tokenizer(t, return_tensors="pt")
@@ -405,7 +405,7 @@ def create_word_videos_semantic(
                     L_token_idx.append(token_idx)
                     embedding = output.last_hidden_state[0][token_idx]
                     L_embeddings.append(embedding / torch.norm(embedding))  # normalize embedding
-
+                    L_video_id_wordbis.append(L_video_id_word[k])
             word_emb_mat = torch.stack(L_embeddings)  # matrix of word embeddings -- dim : nb_texts * 768
             word_text_sim = (
                 word_emb_mat @ word_emb_mat.T
@@ -440,7 +440,7 @@ def create_word_videos_semantic(
 
         for c in range(len(d_c_videoidx)):
             print(f"\n cluster {c}")
-            L_video_cluster = [L_video_id_word[idx] for idx in d_c_videoidx[c]]
+            L_video_cluster = [L_video_id_wordbis[idx] for idx in d_c_videoidx[c]]
             sim = Similarity(
                 L_video_id=L_video_cluster,
                 label=label,
