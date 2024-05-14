@@ -19,7 +19,7 @@ Canada, France, Germany, Italy, Japan, the United Kingdom and the United States 
  ![Comparison between the predictions of the non-expert (top), the expert (middle) classifiers and a ground truth (bottom) on a test video](images/g7_new.png)
 
 ### Videos encoding
-In steps 1 and 3, we used features extracted from a Video Swin Transformer trained on BSL data.
+In steps 1 and 3, we used features extracted from a Video Swin Transformer trained on BSL data.  
 Pre-trained model is available [here](https://github.com/prajwalkr/transpeller).  
 
 ### Mediapi-RGB Corpus
