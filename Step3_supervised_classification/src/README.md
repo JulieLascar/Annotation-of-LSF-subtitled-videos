@@ -3,6 +3,7 @@ Main scripts to train, infer and visualize the models' predictions on sign langu
 
 ├── datasets.py ------------- _Dataset classes for training and inferencing_  
 ├── evaluation.py ----------- _Evaluate models (compute loss and metrics)_  
+├── make_video_demo.py ------ _Make video demos with automatic annotations_  
 ├── models.py --------------- _Models used for classification_  
 ├── test_inference.py ------- _Inference of a trained model on test set and print detected signs_  
 ├── test_score.py ----------- _Compute score on test set_  
