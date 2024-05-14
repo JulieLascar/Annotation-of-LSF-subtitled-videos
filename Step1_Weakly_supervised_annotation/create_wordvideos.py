@@ -644,5 +644,7 @@ def cluster(path_word, results, feature_path, viz_clusters):
                                 video_path_final = p_kmeans + str(d_kmeanslabels[file.split(".")[0]]) + "/" + file
                                 shutil.copy(vid_path, video_path_final)
                 else:
-                    vid_path = path_word + "/" + video_id + ".mp4"
-                    shutil.move(vid_path, video_path_final)
+                    for video_id in results.video_ids:
+                        vid_path = path_word + "/" + video_id + ".mp4"
+                        video_path_final = p_kmeans + str(d_kmeanslabels[video_id]) + "/" + video_id + ".mp4"
+                        shutil.move(vid_path, video_path_final)
