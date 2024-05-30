@@ -43,25 +43,10 @@ for v_id in v_ids:
     for i in range(len(L)):
         ret, frame = cap.read()
         if L[i] == 0:
-            """cv2.putText(frame, 
-            unidecode(dico_cropId2subtitle[v_id]),
-            (50, frame.shape[0] - 50),
-            font, 0.3,
-            ( 0, 0, 0),
-            1,
-            cv2.LINE_AA )"""
             video.write(frame)
         else:
             # print(i, L[i])
             cv2.putText(frame, unidecode(d_Gid2gloses[L[i]]), (50, 50), font, 1, (0, 255, 255), 2, cv2.LINE_4)
-
-            """ cv2.putText(frame, 
-                        unidecode(dico_cropId2subtitle[v_id]),
-                        (50, frame.shape[0] - 50),
-                        font, 0.3,
-                        (0, 0, 0),
-                        1,
-                        cv2.LINE_AA )"""
 
             video.write(frame)
             # if L[i] == 34:
