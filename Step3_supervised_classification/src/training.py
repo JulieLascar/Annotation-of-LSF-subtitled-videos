@@ -79,6 +79,8 @@ Train_dataset = Videofeatures_Labels_Dataset(d_Vid2Labels, DTrain)
 Val_dataset = Videofeatures_Labels_Dataset(d_Vid2Labels, DVal)
 dim_emb = Train_dataset[0][0].shape[1]  # dim video feature (768 for video Swin Transformer)
 class_nb = len(d_gloses2Gid)  # number of classes (included 0)
+train_dataloader = DataLoader(Train_dataset, batch_size=1, shuffle=True)
+val_dataloader = DataLoader(Val_dataset, batch_size=1, shuffle=False)
 
 # Models
 models = {"MLP1": MLP1, "MLP2": MLP2, "LSTM": Lstm, "biLSTM": BiLSTM}
@@ -119,9 +121,7 @@ Best_R, Best_acc = 0, 0
 for epoch in range(state.epoch, state.epoch + epochs):
     print(f"------Epoch {epoch}------")
     model.train()
-    train_dataloader = DataLoader(Train_dataset, batch_size=1, shuffle=True)
-    val_dataloader = DataLoader(Val_dataset, batch_size=1, shuffle=False)
-
+    
     # Iterate over the DataLoader for training data
     for inputs, targets, _ in train_dataloader:
         inputs = inputs.to(device)
